@@ -1,0 +1,13 @@
+@import './theme';
+
+$accent: mat-color($lucof-app-accent);
+
+.accent {
+    color: $accent;
+}
+
+$primary: mat-color($lucof-app-primary);
+
+.primary {
+    color: $primary;
+}

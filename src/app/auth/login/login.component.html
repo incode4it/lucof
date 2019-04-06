@@ -1,0 +1,52 @@
+<div fxLayout="row" fxLayoutAlign="end" style="margin-top: -15px;">
+  <button mat-icon-button (click)="closeLoginWindow()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div appCapsLock (capsLock)="capsOn=$event" class="login-window-wrapper" fxLayout="column" fxLayoutGap="1em">
+  <div class="relative">
+    <div class="line"></div>
+    <div class="title accent">
+      Autentificare
+    </div>
+  </div>
+  <form fxLayout="column" fxLayoutGap="1em" [formGroup]="loginFormGroup"> 
+    <div fxLayout="column">
+      <mat-form-field appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input formControlName="login" matInput placeholder="Introduceți email-ul">
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Parola</mat-label>
+        <input 
+          matInput 
+          formControlName="password"
+          placeholder="Introduceți parola"
+          [type]="hidePassword ? 'password' : 'text'"
+        >
+        <button 
+          appStopPropagation
+          type="button"
+          mat-icon-button 
+          matSuffix 
+          (click)="hidePassword = !hidePassword" 
+          [attr.aria-label]="'hidePassword password'" 
+          [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint *ngIf="capsOn" align="end">
+          <span class="accent f14">Caps Lock Pornit</span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-error *ngIf="wrongCredentials">
+        Login și/sau parolă greșită
+      </mat-error>
+    </div>
+    
+    <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="0.5em">
+      <a href="">Ai uitat parola?</a>
+      <a href="">Nu ai încă un cont?</a>
+    </div>
+    <button (click)="submitCredentials()" mat-raised-button color="primary">Login</button>
+  </form>
+</div>
