@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit {
   public scrollDown(): void {
     console.log('scroll');
     this.cscroll.scrollTo({
-      bottom: 0
+      bottom: 0,
+      behavior: 'smooth'
     });
     // this.scroll.scroll({
     //   document: this.document,
