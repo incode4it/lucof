@@ -3,7 +3,7 @@
     <mat-icon>close</mat-icon>
   </button>
 </div>
-<div appCapsLock (capsLock)="capsOn=$event" class="login-window-wrapper" fxLayout="column" fxLayoutGap="1em">
+<div appCapsLock matDialogContent cdkScrollable (capsLock)="capsOn=$event" class="login-window-wrapper" fxLayout="column" fxLayoutGap="1em">
   <div class="relative">
     <div class="line"></div>
     <div class="title accent">
@@ -20,6 +20,7 @@
         <mat-label>Parola</mat-label>
         <input 
           matInput 
+          (focus)="scrollDown()"
           formControlName="password"
           placeholder="Introduceți parola"
           [type]="hidePassword ? 'password' : 'text'"

@@ -5,8 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TrackCapsDirective } from './directives/track-caps.directive';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
-
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [TrackCapsDirective, StopPropagationDirective],
   imports: [
@@ -14,7 +13,8 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollingModule
   ],
   exports: [
     MaterialModule,
@@ -22,7 +22,8 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     FormsModule,
     ReactiveFormsModule,
     TrackCapsDirective,
-    StopPropagationDirective
+    StopPropagationDirective,
+    ScrollingModule
   ]
 })
 export class CoreModule { }

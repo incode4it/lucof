@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { PublicModule } from './public/public.module';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     CoreModule,
     AuthModule
+    // AuthModule,
+    // PublicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
