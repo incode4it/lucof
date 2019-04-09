@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="end" style="margin-top: -15px;">
-  <button mat-icon-button (click)="closeLoginWindow()">
+  <button mat-icon-button (click)="closeSignUpWindow()">
     <mat-icon>close</mat-icon>
   </button>
 </div>
@@ -7,20 +7,32 @@
   <div class="relative">
     <div class="line"></div>
     <div class="title accent">
-      Autentificare
+      Înregistrare
     </div>
   </div>
-  <form fxLayout="column" fxLayoutGap="1em" [formGroup]="loginFormGroup"> 
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-raised-button>
+      Continua cu fb
+    </button>
+    <button mat-raised-button>
+      Continua cu google
+    </button>
+  </div>
+  <form fxLayout="column" fxLayoutGap="0.5em" [formGroup]="signUpFormGroup"> 
     <div fxLayout="column">
       <mat-form-field appearance="legacy">
         <mat-label>Email</mat-label>
-        <input (focus)="scroll('top')" formControlName="login" matInput placeholder="Introduceți email-ul">
+        <input formControlName="email" matInput placeholder="Introduceți email-ul">
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Nume</mat-label>
+        <input formControlName="username" matInput placeholder="Introduceți numele">
       </mat-form-field>
       <mat-form-field appearance="legacy">
         <mat-label>Parola</mat-label>
         <input 
           matInput 
-          (focus)="scroll('bottom')"
+          (focus)="scrollDown()"
           formControlName="password"
           placeholder="Introduceți parola"
           [type]="hidePassword ? 'password' : 'text'"
@@ -43,11 +55,6 @@
         Login și/sau parolă greșită
       </mat-error>
     </div>
-    
-    <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="0.5em">
-      <a href="">Ai uitat parola?</a>
-      <a href="">Nu ai încă un cont?</a>
-    </div>
-    <button (click)="submitCredentials()" mat-raised-button color="primary">Login</button>
+    <button (click)="submitSignUpData()" mat-raised-button color="primary">Înregistrare</button>
   </form>
 </div>

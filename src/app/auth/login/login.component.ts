@@ -3,6 +3,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { CdkScrollable } from '@angular/cdk/overlay';
+import { Router, RouterEvent, NavigationStart } from '@angular/router';
+
+import { filter, tap, take } from 'rxjs/operators';
+import { ExtendedScrollToOptions } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<LoginComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   @ViewChild(CdkScrollable) cscroll: CdkScrollable ;
@@ -32,6 +37,11 @@ export class LoginComponent implements OnInit {
     });
     console.log(this.cscroll);
     console.log(this.cscroll.measureScrollOffset('bottom'));
+    this.router.events.pipe(
+      filter((event: RouterEvent) => event instanceof NavigationStart),
+      tap(() => this.dialogRef.close()),
+      take(1),
+    ).subscribe();
   }
 
   closeLoginWindow() {
@@ -55,17 +65,12 @@ export class LoginComponent implements OnInit {
     });
    }
 
-  public scrollDown(): void {
-    console.log('scroll');
-    this.cscroll.scrollTo({
-      bottom: 0,
+  public scroll(direction: 'top' | 'bottom'): void {
+    const scroll: ExtendedScrollToOptions = {
       behavior: 'smooth'
-    });
-    // this.scroll.scroll({
-    //   document: this.document,
-    //   scrollTarget: '.end',
-    // });
-    // this.scroll.sc
+    };
+    direction === 'top' ? scroll.top = 0 : scroll.bottom = 0;
+    this.cscroll.scrollTo(scroll);
   }
 
 }

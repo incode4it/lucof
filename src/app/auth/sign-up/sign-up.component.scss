@@ -1,0 +1,10 @@
+@import '../../../assets/scss/variables.scss';
+ 
+.line {
+   width: 4px;
+   border-radius: 1px;
+   height: 100%;
+   left: -24px;
+   background: $accent;
+   position: absolute;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/auth/login/login.component';
+import { SignUpComponent } from 'src/app/auth/sign-up/sign-up.component';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +21,16 @@ export class HomeComponent implements OnInit {
     this.matDialog.open(LoginComponent, {
       panelClass: 'full-screen-dialog',
       autoFocus: false,
-      closeOnNavigation: true
+      closeOnNavigation: false
     });
+  }
+
+  openSignUp() {
+    this.matDialog.open(SignUpComponent, {
+      panelClass: 'full-screen-dialog',
+      autoFocus: false,
+      closeOnNavigation: false
+    })
   }
 
 }
