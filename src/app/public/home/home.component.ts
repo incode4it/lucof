@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { SignUpComponent } from 'src/app/auth/sign-up/sign-up.component';
+import { MediaObserver } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-home',
@@ -11,26 +12,45 @@ import { SignUpComponent } from 'src/app/auth/sign-up/sign-up.component';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private mediaObserver: MediaObserver
   ) { }
 
-  ngOnInit() {
-  }
+  public mediaStatus: string = null;
 
-  openLogin() {
-    this.matDialog.open(LoginComponent, {
-      panelClass: 'full-screen-dialog',
-      autoFocus: false,
-      closeOnNavigation: false
+  ngOnInit() {
+    this.mediaObserver.asObservable().subscribe(v => {
+      this.mediaStatus = v[0].mqAlias;
+      // console.log(v[0].mqAlias);
     });
   }
 
-  openSignUp() {
-    this.matDialog.open(SignUpComponent, {
-      panelClass: 'full-screen-dialog',
+  openLogin() {
+    const dialogConfig: MatDialogConfig = {
       autoFocus: false,
-      closeOnNavigation: false
-    })
+      closeOnNavigation: true
+    };
+    if (this.mediaStatus === 'xs') {
+      dialogConfig.panelClass = 'full-screen-dialog';
+    } else {
+      dialogConfig.width = '450px';
+      dialogConfig.height = '330px';
+    }
+    this.matDialog.open(LoginComponent, dialogConfig);
+  }
+
+  openSignUp() {
+    const dialogConfig: MatDialogConfig = {
+      autoFocus: false,
+      closeOnNavigation: true
+    };
+    if (this.mediaStatus === 'xs') {
+      dialogConfig.panelClass = 'full-screen-dialog';
+    } else {
+      dialogConfig.width = '450px';
+      dialogConfig.height = '407px';
+    }
+    this.matDialog.open(SignUpComponent, dialogConfig);
   }
 
 }

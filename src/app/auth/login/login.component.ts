@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import {MediaObserver} from '@angular/flex-layout';
 import { CdkScrollable } from '@angular/cdk/overlay';
 import { Router, RouterEvent, NavigationStart } from '@angular/router';
 
