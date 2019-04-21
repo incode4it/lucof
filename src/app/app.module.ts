@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { PublicModule } from './public/public.module';
+import { LayoutsModule } from './layouts/layouts.module';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { PublicModule } from './public/public.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
-    AuthModule
+    AuthModule,
+    LayoutsModule
     // AuthModule,
     // PublicModule
   ],

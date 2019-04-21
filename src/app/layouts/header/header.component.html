@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="full-width">
+    <div fxLayoutAlign="start center">
+      <button mat-icon-button (click)="emitToggleAction()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span style="margin-top: 3px">Lucof</span>
+    </div>
+    <div fxLayoutGap="10px">
+      <span (click)="openLogin()" class="link">Login</span>
+      <span (click)="openSignUp()" class="link">Înregistrare</span>
+    </div>
+  </div>
+</mat-toolbar>
