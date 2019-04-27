@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from './auth/login/login.component';
 import { SessionQuery } from './state/session';
@@ -6,7 +6,8 @@ import { SessionQuery } from './state/session';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   constructor(
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
     private sessionQuery: SessionQuery) {}
 
   title = 'lucof';
+  translations = null;
 
   async ngOnInit() {
     console.log(this.sessionQuery.isLoggedIn);
@@ -27,5 +29,10 @@ export class AppComponent implements OnInit {
       panelClass: 'full-screen-dialog',
       autoFocus: false
     });
+  }
+
+  calculateScaleY(el) {
+    console.log(el);
+    // this.translations = el.native
   }
 }

@@ -6,8 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TrackCapsDirective } from './directives/track-caps.directive';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { SafePipe } from './pipes/safe.pipe';
 @NgModule({
-  declarations: [TrackCapsDirective, StopPropagationDirective],
+  declarations: [TrackCapsDirective, StopPropagationDirective, SafePipe],
   imports: [
     CommonModule,
     MaterialModule,
@@ -23,7 +24,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     ReactiveFormsModule,
     TrackCapsDirective,
     StopPropagationDirective,
-    ScrollingModule
+    ScrollingModule,
+    SafePipe
   ]
 })
 export class CoreModule { }

@@ -1,14 +1,43 @@
-<mat-toolbar color="primary">
-  <div fxLayout="row" fxLayoutAlign="space-between center" class="full-width">
-    <div fxLayoutAlign="start center">
-      <button mat-icon-button (click)="emitToggleAction()">
+<mat-toolbar color="white">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="full-width full-height">
+    <div fxLayoutAlign="start center" class="full-height">
+      <button *ngIf="mediaStatus === 'xs'" mat-icon-button (click)="emitToggleAction()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span style="margin-top: 3px">Lucof</span>
+      <span style="margin: 3px 0 0 10px">LUCOF</span>
+      <div class="menu-wrapper" *ngIf="mediaStatus !== 'xs'">
+        <div class="menu-item" (click)="calculateLineTransformation($event)">
+          Pagina principală
+        </div>
+        <div class="menu-item" (click)="calculateLineTransformation($event)">
+          Executori
+        </div>
+        <div class="menu-item" (click)="calculateLineTransformation($event)">
+          Lucru
+        </div>
+        <div class="menu-item" (click)="calculateLineTransformation($event)">
+          Despre Proiect
+        </div>
+        <div class="menu-item" (click)="calculateLineTransformation($event)">
+          F.A.Q.
+        </div>
+        <div class="transition-line"
+          [style.transform]="transformStyle | safe: 'style'" ></div>
+      </div>
     </div>
-    <div fxLayoutGap="10px">
-      <span (click)="openLogin()" class="link">Login</span>
-      <span (click)="openSignUp()" class="link">Înregistrare</span>
+    <div fxLayoutAlign="start" fxLayoutGap="10px" class="full-height">
+      <span 
+        (click)="openLogin()" 
+        class="link full-height"
+        fxLayoutAlign="start center">
+        Login
+      </span>
+      <span 
+        (click)="openSignUp()" 
+        class="link full-height"
+        fxLayoutAlign="start center">
+        Înregistrare
+      </span>
     </div>
   </div>
 </mat-toolbar>
