@@ -32,14 +32,18 @@
           [style.transform]="transformStyle | safe: 'style'" ></div>
       </div>
     </div>
-    <div fxLayoutAlign="start" fxLayoutGap="10px" class="full-height">
+    <div fxLayoutAlign="start" class="full-height">
       <span 
+        style="padding: 0 10px;"
+        matRipple
         (click)="openLogin()" 
         class="link full-height"
         fxLayoutAlign="start center">
         Login
       </span>
       <span 
+        style="padding: 0 10px;"
+        matRipple
         (click)="openSignUp()" 
         class="link full-height"
         fxLayoutAlign="start center">
