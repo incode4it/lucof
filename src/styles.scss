@@ -20,3 +20,14 @@ div[ng-reflect-router-link]:hover, div[ng-reflect-router-link]:active, div[ng-re
     outline: none;
     border: 0;
 }
+
+.link:focus,
+.link:hover,
+.link:active,
+.mob-menu-item:focus,
+.mob-menu-item:hover,
+.mob-menu-item:active {
+    outline: none !important;
+    border: 0 !important;
+    // border: 1px solid black;
+}
