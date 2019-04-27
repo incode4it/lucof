@@ -6,13 +6,20 @@
       </button>
       <span style="margin: 3px 0 0 10px">LUCOF</span>
       <div class="menu-wrapper" *ngIf="mediaStatus !== 'xs'">
-        <div class="menu-item" (click)="calculateLineTransformation($event)">
+        <div class="menu-item" 
+          [routerLink]="['/']"  
+          (click)="calculateLineTransformation($event)">
           Pagina principală
         </div>
-        <div class="menu-item" (click)="calculateLineTransformation($event)">
+        <div 
+          class="menu-item" 
+          [routerLink]="['/workers']"
+          (click)="calculateLineTransformation($event)">
           Executori
         </div>
-        <div class="menu-item" (click)="calculateLineTransformation($event)">
+        <div class="menu-item" 
+          [routerLink]="['/projects']"
+          (click)="calculateLineTransformation($event)">
           Lucru
         </div>
         <div class="menu-item" (click)="calculateLineTransformation($event)">

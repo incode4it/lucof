@@ -5,8 +5,9 @@
     mode="over"
     class="sidenav"
     fixedInViewport
-    #sidenav
-    >Drawer content</mat-drawer>
+    #sidenav>
+    <app-sidenav (closeSidenav)="sidenav.toggle()"></app-sidenav>
+  </mat-drawer>
   <mat-drawer-content>
     <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
     <router-outlet></router-outlet>

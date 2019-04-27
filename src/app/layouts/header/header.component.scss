@@ -23,9 +23,7 @@
 }
 
 .transition-line {
-  // transform: scaleX(0.29) translateX(0);
   transform-origin: left;
-  border-radius: 10px;
   height: 2px;
   background: $accent;
   width: 1px;
@@ -33,6 +31,7 @@
   bottom: 0;
   transition: transform 500ms cubic-bezier(0.35, 0, 0.25, 1);
 }
+
 ::ng-deep .mat-toolbar {
   border-bottom: thin solid #ccc;
 }

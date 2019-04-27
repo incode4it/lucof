@@ -15,3 +15,8 @@
     width: 100vw !important;
     max-width: none !important;
   }
+
+div[ng-reflect-router-link]:hover, div[ng-reflect-router-link]:active, div[ng-reflect-router-link]:focus {
+    outline: none;
+    border: 0;
+}

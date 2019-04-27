@@ -1,0 +1,22 @@
+.mob-menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.mob-menu-item {
+  height: 40px;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  padding-left: 15px;
+  margin: 0 10px 5px 10px;
+}
+
+
+.active {
+  background: rgba(255,99,71,0.1);
+  color: tomato;
+  // transition: all 100ms ease;
+}

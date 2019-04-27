@@ -1,0 +1,31 @@
+<div class="wrapper" fxLayout="column">
+  <div fxLayoutAlign="center center" style="height: 100px" >
+    LUCOF
+  </div>
+  <mat-divider></mat-divider>
+
+  <div (click)="closeSidenav.emit()" class="mob-menu-wrapper">
+    <div 
+      matRipple 
+      matRippleColor="rgba(255, 99, 71, 0.1)"
+      routerLinkActive="active" 
+      [routerLinkActiveOptions]="{exact: true}"
+      class="mob-menu-item" 
+      [routerLink]="['/']"
+      >
+      Pagina principală
+    </div>
+    <div matRipple matRippleColor="rgba(255, 99, 71, 0.1)" routerLinkActive="active" class="mob-menu-item" [routerLink]="['/workers']">
+      Executori
+    </div>
+    <div matRipple matRippleColor="rgba(255, 99, 71, 0.1)" routerLinkActive="active" class="mob-menu-item" [routerLink]="['/projects']">
+      Lucru
+    </div>
+    <div matRipple matRippleColor="rgba(255, 99, 71, 0.1)" routerLinkActive="active" class="mob-menu-item">
+      Despre Proiect
+    </div>
+    <div matRipple matRippleColor="rgba(255, 99, 71, 0.1)" routerLinkActive="active" class="mob-menu-item">
+      F.A.Q.
+    </div>
+  </div>
+</div>

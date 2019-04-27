@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {LayoutModule} from '@angular/cdk/layout';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatRippleModule} from '@angular/material/core';
 @NgModule({
   exports: [
     MatDialogModule,
@@ -16,7 +18,9 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatInputModule,
     MatSidenavModule,
     MatToolbarModule,
-    LayoutModule
+    LayoutModule,
+    MatDividerModule,
+    MatRippleModule
   ]
 })
 export class MaterialModule {
