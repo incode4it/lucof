@@ -21,7 +21,6 @@ div[ng-reflect-router-link]:hover, div[ng-reflect-router-link]:active, div[ng-re
     border: 0;
 }
 
-.link:focus,
 .link:hover,
 .link:active,
 .mob-menu-item:focus,
@@ -30,4 +29,9 @@ div[ng-reflect-router-link]:hover, div[ng-reflect-router-link]:active, div[ng-re
     outline: none !important;
     border: 0 !important;
     // border: 1px solid black;
+}
+
+.link:focus {
+    background: rgba(0,0,0,0.05);
+    outline: none;
 }
