@@ -7,7 +7,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { LayoutsModule } from './layouts/layouts.module';
-
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { LayoutsModule } from './layouts/layouts.module';
     AppRoutingModule,
     CoreModule,
     AuthModule,
-    LayoutsModule
+    LayoutsModule,
+    AkitaNgDevtools.forRoot()
     // AuthModule,
     // PublicModule
   ],

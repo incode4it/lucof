@@ -1,12 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, Inject, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {MediaObserver} from '@angular/flex-layout';
 import { CdkScrollable } from '@angular/cdk/overlay';
-import { Router, RouterEvent, NavigationStart } from '@angular/router';
-
-import { filter, tap, take } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { ExtendedScrollToOptions } from '@angular/cdk/scrolling';
+import { SessionService } from 'src/app/state/session';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<LoginComponent>,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private sessionService: SessionService
   ) { }
 
   @ViewChild(CdkScrollable) cscroll: CdkScrollable ;
@@ -32,27 +31,29 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginFormGroup = this.fb.group({
-      login: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
-    console.log(this.cscroll);
-    console.log(this.cscroll.measureScrollOffset('bottom'));
-    this.router.events.pipe(
-      filter((event: RouterEvent) => event instanceof NavigationStart),
-      tap(() => this.dialogRef.close()),
-      take(1),
-    ).subscribe();
   }
 
   closeLoginWindow() {
     this.dialogRef.close();
   }
 
-  submitCredentials() {
-    if (this.loginFormGroup.invalid) {
-      this.markFormGroupTouched(this.loginFormGroup);
+  async submitCredentials() {
+    console.log(this.loginFormGroup.value);
+    try {
+      await this.sessionService.login(this.loginFormGroup.value).toPromise();
+      this.dialogRef.close();
+    } catch (err) {
+      if (err.status === 400) {
+        switch (err.error.message) {
+          case 'wrong credentials':
+            this.wrongCredentials = true;
+            break;
+        }
+      }
     }
-    this.wrongCredentials = true;
   }
 
   markFormGroupTouched(formGroup: FormGroup) {

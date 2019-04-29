@@ -14,11 +14,17 @@
     <div fxLayout="column">
       <mat-form-field appearance="legacy">
         <mat-label>Email</mat-label>
-        <input (focus)="scroll('top')" formControlName="login" matInput placeholder="Introduceți email-ul">
+        <input 
+          autocomplete="email"
+          (focus)="scroll('top')" 
+          formControlName="email" 
+          matInput 
+          placeholder="Introduceți email-ul">
       </mat-form-field>
       <mat-form-field appearance="legacy">
         <mat-label>Parola</mat-label>
         <input 
+          autocomplete="current-password"
           matInput 
           (focus)="scroll('bottom')"
           formControlName="password"

@@ -1,8 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { SignUpComponent } from 'src/app/auth/sign-up/sign-up.component';
+import { SessionQuery, SessionService } from 'src/app/state/session';
 
 @Component({
   selector: 'app-header',
@@ -13,13 +14,18 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private mediaObserver: MediaObserver,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private sessionQuery: SessionQuery,
+    private sessionService: SessionService,
+    private cd: ChangeDetectorRef,
   ) { }
 
   @Output() public sidenavToggle: EventEmitter<void> = new EventEmitter();
 
   public mediaStatus: string = null;
-  transformStyle = 'translateX(0px) scaleX(123)';
+  public transformStyle = 'translateX(0px) scaleX(123)';
+
+  public isLoggedIn: boolean;
 
   async ngOnInit() {
     const media$ = this.mediaObserver.asObservable().subscribe(
@@ -27,6 +33,14 @@ export class HeaderComponent implements OnInit {
         this.mediaStatus = val[0].mqAlias;
         media$.unsubscribe();
     });
+    this.sessionQuery.$isLoggedIn.subscribe(val => {
+      this.isLoggedIn = val;
+      this.cd.markForCheck();
+    });
+  }
+
+  public logout(): void {
+    this.sessionService.logout();
   }
 
   public openLogin(): void {

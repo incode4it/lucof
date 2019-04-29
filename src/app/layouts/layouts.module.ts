@@ -5,6 +5,7 @@ import { CoreModule } from '../core/core.module';
 import { AuthModule } from '../auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { UsersModule } from '../users/users.module';
 
 @NgModule({
   declarations: [HeaderComponent, SidenavComponent],
@@ -12,7 +13,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     CommonModule,
     CoreModule,
     AuthModule,
-    RouterModule
+    RouterModule,
+    UsersModule
   ],
   exports: [
     HeaderComponent,

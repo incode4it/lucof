@@ -9,6 +9,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatRippleModule} from '@angular/material/core';
+import {OverlayModule} from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
+
 @NgModule({
   exports: [
     MatDialogModule,
@@ -20,7 +23,9 @@ import {MatRippleModule} from '@angular/material/core';
     MatToolbarModule,
     LayoutModule,
     MatDividerModule,
-    MatRippleModule
+    MatRippleModule,
+    OverlayModule,
+    PortalModule
   ]
 })
 export class MaterialModule {
