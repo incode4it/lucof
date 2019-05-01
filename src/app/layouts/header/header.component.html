@@ -4,7 +4,7 @@
       <button *ngIf="mediaStatus === 'xs'" mat-icon-button (click)="emitToggleAction()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span style="margin: 3px 0 0 10px">LUCOF</span>
+      <button mat-button [routerLink]="['/']" style="margin-top: 3px;">LUCOF</button>
       <div class="menu-wrapper" *ngIf="mediaStatus !== 'xs'">
         <div class="menu-item" 
           [routerLink]="['/']"  
@@ -20,7 +20,7 @@
         <div class="menu-item" 
           [routerLink]="['/projects']"
           (click)="calculateLineTransformation($event)">
-          Lucru
+           Lucrări
         </div>
         <div class="menu-item" (click)="calculateLineTransformation($event)">
           Despre Proiect

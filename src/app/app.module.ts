@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
@@ -20,7 +20,8 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
     CoreModule,
     AuthModule,
     LayoutsModule,
-    AkitaNgDevtools.forRoot()
+    AkitaNgDevtools.forRoot(),
+    LoadingBarHttpClientModule,
     // AuthModule,
     // PublicModule
   ],

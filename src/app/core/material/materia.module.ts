@@ -11,7 +11,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatRippleModule} from '@angular/material/core';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   exports: [
     MatDialogModule,
@@ -25,7 +27,10 @@ import { PortalModule } from '@angular/cdk/portal';
     MatDividerModule,
     MatRippleModule,
     OverlayModule,
-    PortalModule
+    PortalModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule {

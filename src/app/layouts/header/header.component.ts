@@ -37,6 +37,11 @@ export class HeaderComponent implements OnInit {
       this.isLoggedIn = val;
       this.cd.markForCheck();
     });
+    this.sessionService.openLoginScreen$.subscribe(openLoginScreenEvent => {
+      if (openLoginScreenEvent) {
+        this.openLogin();
+      }
+    });
   }
 
   public logout(): void {

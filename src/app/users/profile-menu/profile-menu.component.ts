@@ -38,7 +38,7 @@ export class ProfileMenuComponent implements OnInit {
             overlayX: 'start',
             overlayY: 'top',
           }
-        ])
+        ]).withDefaultOffsetX(-10)
         ,
         hasBackdrop: true,
         backdropClass: 'transparent-backdrop',

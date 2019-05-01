@@ -4,6 +4,10 @@
     font-size: calc(22px + 0.5vw);
 }
 
+.title2 {
+    font-size: 20px;
+}
+
 .relative {
     position: relative;
 }
@@ -34,4 +38,12 @@ a {
     padding: 10px;
     border: thin solid #ccc;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.lucof-snack {
+    width: auto !important;
+    margin: auto auto 10px auto !important;
+}
+.mat-simple-snackbar {
+    padding: 0 10px !important;
 }

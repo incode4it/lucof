@@ -13,7 +13,7 @@ export interface SessionState {
   isExpired: boolean;
 }
 
-export function createTokenState(token?: string): SessionState {
+export function createSessionState(token?: string): SessionState {
   let state: SessionState = {
     token: null,
     id: null,
@@ -40,7 +40,7 @@ export function createTokenState(token?: string): SessionState {
 }
 
 export function createInitialState(): SessionState {
-  return createTokenState(localStorage.getItem('token'));
+  return createSessionState(localStorage.getItem('token'));
 }
 @Injectable({
   providedIn: 'root'

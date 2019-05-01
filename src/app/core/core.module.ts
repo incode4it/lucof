@@ -7,6 +7,11 @@ import { TrackCapsDirective } from './directives/track-caps.directive';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SafePipe } from './pipes/safe.pipe';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+
+
+
+
 @NgModule({
   declarations: [TrackCapsDirective, StopPropagationDirective, SafePipe],
   imports: [
@@ -26,6 +31,14 @@ import { SafePipe } from './pipes/safe.pipe';
     StopPropagationDirective,
     ScrollingModule,
     SafePipe
+  ],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 2500,
+        panelClass: 'lucof-snack'
+      }}
   ]
 })
 export class CoreModule { }

@@ -1,9 +1,10 @@
-import { SessionStore, createTokenState } from './session.store';
+import { SessionStore, createSessionState } from './session.store';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IUserLogin } from 'src/app/auth/interfaces/user-login.dto';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,12 @@ import { tap } from 'rxjs/operators';
 export class SessionService {
   constructor(
     private sessionStore: SessionStore,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
     ) {}
+
+  private openLoginScreenSubject = new BehaviorSubject(null);
+  public openLoginScreen$ = this.openLoginScreenSubject.asObservable();
 
   public updateToken(token: string): void {
     this.sessionStore.update({token});
@@ -26,14 +31,19 @@ export class SessionService {
     return this.authService.performLogin(userCredentials).pipe(
       tap((res: any) => {
         localStorage.setItem('token', res.token);
-        this.sessionStore.update(createTokenState(res.token));
+        this.sessionStore.update(createSessionState(res.token));
       })
     );
   }
 
   public logout(): void {
     localStorage.removeItem('token');
-    this.sessionStore.update(createTokenState());
+    this.sessionStore.update(createSessionState());
+    this.router.navigate(['/']);
+  }
+
+  public openLoginScreen(): void {
+    this.openLoginScreenSubject.next(true);
   }
 
 }

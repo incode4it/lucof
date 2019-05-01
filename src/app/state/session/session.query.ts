@@ -10,8 +10,10 @@ export class SessionQuery extends Query<SessionState> {
   constructor(protected store: SessionStore) {
     super(store);
   }
+  public get isLoggedIn(): boolean {
+    return !!this.getValue().token && !this.getValue().isExpired;
+  }
 
   public $isLoggedIn: Observable<boolean> = this.select(state => !!state.token && !state.isExpired);
-  public isLoggedIn: boolean = !!this.getValue().token && !this.getValue().isExpired;
 
 }

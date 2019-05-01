@@ -1,0 +1,27 @@
+<div fxLayout="row" fxFlex.xs="100" fxFlex="60">
+  <div fxLayout="column" class="full-width" fxLayoutGap="20px">
+    <div class="title2">
+      Date de Profil
+    </div>
+      <div *ngIf="profileForm" fxLayout="column" fxLayoutGap="10px" style="padding: 10px 0;border: 1px solid #ccc; border-radius: 4px;">
+        <app-profile-details-field
+          fieldName="Prenume"
+          [control]="profileForm.get('firstName')"
+          valueKey="firstName"
+        ></app-profile-details-field>
+        <mat-divider></mat-divider>
+        <app-profile-details-field
+          fieldName="Nume"
+          [control]="profileForm.get('lastName')"
+          valueKey="lastName"
+        ></app-profile-details-field>
+        <mat-divider></mat-divider>
+        <app-profile-details-field
+          fieldName="Email"
+          [control]="profileForm.get('email')"
+          valueKey="email"
+        ></app-profile-details-field>
+    </div>
+  </div>
+</div>
+

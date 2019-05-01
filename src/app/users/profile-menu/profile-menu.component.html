@@ -8,11 +8,12 @@
   <div class="profile-menu-body" fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="10px">
     <div class="notifications">
       Notificări:
+      <div class="no-notifications">Lipsesc</div>
     </div>
     <div fxLayout="column" fxLayoutGap="10px">
       <mat-divider></mat-divider>
       <div fxLayoutAlign="space-between">
-        <button mat-stroked-button color="accent">Cabinet</button>
+        <button (click)="closeMenu()" [routerLink]="['/profile']" mat-stroked-button color="accent">Cabinet</button>
         <button (click)="logout()" mat-stroked-button>Ieșire</button>
       </div>
     </div>

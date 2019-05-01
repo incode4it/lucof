@@ -36,3 +36,19 @@ div[ng-reflect-router-link]:hover, div[ng-reflect-router-link]:active, div[ng-re
     background: rgba(0,0,0,0.05);
     outline: none;
 }
+.mat-tab-header-pagination {
+    display: none !important;
+    }
+    .mat-tab-header {
+    overflow: scroll !important;
+    }
+    .mat-tab-header::-webkit-scrollbar {
+    display: none !important;
+    }
+    .mat-tab-label-container {
+    overflow: initial !important;
+    }
+
+mat-icon {
+font-size: 20px !important;
+}

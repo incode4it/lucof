@@ -1,0 +1,12 @@
+.form-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.empty-value {
+  font-size: 14px;
+  color: #a7a5a5;
+  text-transform: uppercase;
+  user-select: none;
+}

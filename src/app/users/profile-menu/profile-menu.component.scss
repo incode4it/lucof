@@ -25,3 +25,20 @@
 .profile-menu-body {
   width: 100%;
 }
+
+.notifications {
+  height: 120px;
+  position: relative;
+}
+.no-notifications {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  top: 50%;
+  background: #eaeaea;
+  font-size: 12px;
+  padding: 7px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: #868686;
+}
