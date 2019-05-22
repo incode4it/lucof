@@ -14,6 +14,8 @@ import { PortalModule } from '@angular/cdk/portal';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   exports: [
     MatDialogModule,
@@ -30,7 +32,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     PortalModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule {

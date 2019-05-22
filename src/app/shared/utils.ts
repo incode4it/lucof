@@ -14,13 +14,13 @@ export function cloneAbstractControl<T extends AbstractControl>(control: T): T {
 
     Object.keys(controls).forEach(key => {
       formGroup.addControl(key, cloneAbstractControl(controls[key]));
-    })
+    });
 
     newControl = formGroup as any;
   } else if (control instanceof FormArray) {
     const formArray = new FormArray([], control.validator, control.asyncValidator);
 
-    control.controls.forEach(formControl => formArray.push(cloneAbstractControl(formControl)))
+    control.controls.forEach(formControl => formArray.push(cloneAbstractControl(formControl)));
 
     newControl = formArray as any;
   } else if (control instanceof FormControl) {

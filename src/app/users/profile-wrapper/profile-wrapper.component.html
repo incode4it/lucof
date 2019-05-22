@@ -4,24 +4,24 @@
       routerLinkActive #rla1="routerLinkActive"
       [active]="rla1.isActive">Detalii
     </a>
-    <!-- <a mat-tab-link class="docs-component-viewer-section-tab"
-      [routerLink]="['/profile/details']"
-      routerLinkActive #rla="routerLinkActive"
-      [active]="rla.isActive">Postări
-    </a> -->
+    <a mat-tab-link class="docs-component-viewer-section-tab"
+      [routerLink]="['/profile/tasks']"
+      routerLinkActive #rla2="routerLinkActive"
+      [active]="rla2.isActive">Postări
+    </a>
     <a mat-tab-link
       [routerLink]="['/profile/deals']"
-      routerLinkActive #rla2="routerLinkActive"
-      [active]="rla2.isActive">Înțelegeri
+      routerLinkActive #rla3="routerLinkActive"
+      [active]="rla3.isActive">Înțelegeri
     </a>
   </nav>
 
-<div class="profile-page-wrapper" fxLayout="row">
+<div class="profile-page-wrapper" ngClass.xs="mobile-top-padidng" fxLayout="row">
   <div fxShow fxHide.xs="true" class="sidenav-profile-menu">
-    <div routerLinkActive="s-active" [routerLink]="['/profile/details']" class="s-menu-item">Detali</div>
-    <div routerLinkActive="s-active"  class="s-menu-item">Postări</div>
-    <div routerLinkActive="s-active" [routerLink]="['/profile/deals']" class="s-menu-item">Înțelegeri</div>
-    <div routerLinkActive="s-active"  class="s-line"></div>
+    <div routerLinkActive="s-active" [routerLink]="['/profile/details']" class="s-menu-item p1">Detali</div>
+    <div routerLinkActive="s-active" [routerLink]="['/profile/tasks']" class="s-menu-item p2">Postări</div>
+    <div routerLinkActive="s-active" [routerLink]="['/profile/deals']" class="s-menu-item p3">Înțelegeri</div>
+    <div class="s-line"></div>
   </div>
   <div class="router-outlet-wraper" fxFlex="100">
     <router-outlet></router-outlet>

@@ -1,0 +1,25 @@
+<div fxLayout="column" fxLayoutGap="10px" class="card-wrapper">
+  <div matRipple style="height: 40px;" fxFlexAlign="start center">
+    <span class="card-title">
+      {{task.title}}
+    </span>
+  </div>
+  <div class="card-description">
+    {{task.description}}
+  </div>
+  <mat-divider class="card-divider"></mat-divider>
+  <div class="base-info" fxLayout="row" fxLayoutGap="30px">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <span class="b-title">Creat de</span>
+      <div class="b-content">{{task.createdBy}}</div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px">
+      <span class="b-title">Online</span>
+      <div class="b-content">{{task.online}}</div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px">
+      <span class="b-title">Buget</span>
+      <div class="b-content">{{task.budget}}</div>
+    </div>
+  </div>
+</div>

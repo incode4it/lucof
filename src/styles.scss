@@ -17,7 +17,7 @@
     max-width: none !important;
   }
 
-div[ng-reflect-router-link]:hover, div[ng-reflect-router-link]:active, div[ng-reflect-router-link]:focus {
+*[ng-reflect-router-link]:hover, *[ng-reflect-router-link]:active, *[ng-reflect-router-link]:focus {
     outline: none;
     border: 0;
 }

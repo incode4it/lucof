@@ -4,6 +4,8 @@ import { ProfileWrapperComponent } from './profile-wrapper/profile-wrapper.compo
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { DealsComponent } from './deals/deals.component';
 import { AuthGuardService } from '../auth/auth-guard.service';
+import { ProfileTasksComponent } from './profile-tasks/profile-tasks.component';
+import { TaskCreateComponent } from './profile-tasks/task-create/task-create.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,16 @@ const routes: Routes = [
       {
         path: 'deals',
         component: DealsComponent
+      },
+      {
+        path: 'tasks',
+        component: ProfileTasksComponent,
+      },
+      {
+        path: 'tasks/create',
+        component: TaskCreateComponent,
       }
+
     ]
   }
 ];

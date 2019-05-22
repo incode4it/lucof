@@ -1,0 +1,15 @@
+<div fxLayout="column" fxLayoutGap="20px" class="full-width full-height">
+  <div class="title2">Sarcini:</div>
+  <div fxFlex="row" fxLayoutGap="12px grid" class="full-height">
+    <div *ngIf="tasks?.size > 0" fxFlex="70" fxLayout="row wrap" fxLayoutGap="12px grid" fxLayoutAlign="space-between start">
+      <app-task-card
+        [routerLink]="['/tasks', task._id]"
+        *ngFor="let task of tasks.toJS()"
+        fxFlex.xs="100" 
+        fxFlex="50"
+        [task]="task"
+        ></app-task-card>
+    </div>
+    <div fxFlex="30">filter panel</div>
+  </div>
+</div>

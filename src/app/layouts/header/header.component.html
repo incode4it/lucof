@@ -1,11 +1,11 @@
-<mat-toolbar color="white">
+<mat-toolbar style="position: fixed;" color="white">
   <div fxLayout="row" fxLayoutAlign="space-between center" class="full-width full-height">
     <div fxLayoutAlign="start center" class="full-height">
-      <button *ngIf="mediaStatus === 'xs'" mat-icon-button (click)="emitToggleAction()">
+      <button fxHide [fxShow.xs]="true" mat-icon-button (click)="emitToggleAction()">
         <mat-icon>menu</mat-icon>
       </button>
       <button mat-button [routerLink]="['/']" style="margin-top: 3px;">LUCOF</button>
-      <div class="menu-wrapper" *ngIf="mediaStatus !== 'xs'">
+      <div class="menu-wrapper" fxShow [fxHide.xs]="true">
         <div class="menu-item" 
           [routerLink]="['/']"  
           (click)="calculateLineTransformation($event)">
@@ -18,9 +18,9 @@
           Executori
         </div>
         <div class="menu-item" 
-          [routerLink]="['/projects']"
+          [routerLink]="['/tasks']"
           (click)="calculateLineTransformation($event)">
-           Lucrări
+          Sarcini
         </div>
         <div class="menu-item" (click)="calculateLineTransformation($event)">
           Despre Proiect

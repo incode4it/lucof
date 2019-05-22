@@ -9,23 +9,27 @@ import { DealsComponent } from './deals/deals.component';
 import { ProfileDetailsFieldComponent } from './profile-details/profile-details-field/profile-details-field.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from '../auth/token-interceptor.service';
+import { ProfileTasksComponent } from './profile-tasks/profile-tasks.component';
+import { TaskCreateComponent } from './profile-tasks/task-create/task-create.component';
+import {TasksModule} from '../tasks/tasks.module';
 
 @NgModule({
-  declarations: [ProfileMenuComponent, ProfileDetailsComponent, ProfileWrapperComponent, DealsComponent, ProfileDetailsFieldComponent],
+  declarations: [ProfileMenuComponent, ProfileDetailsComponent, ProfileWrapperComponent, DealsComponent, ProfileDetailsFieldComponent, ProfileTasksComponent, TaskCreateComponent],
   imports: [
     CommonModule,
     CoreModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    TasksModule,
   ],
   exports: [
     ProfileMenuComponent
   ],
   providers: [
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
   ]
 })
 export class UsersModule { }

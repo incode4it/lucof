@@ -5,8 +5,6 @@
   display: flex;
   flex-direction: column;
   border-radius: 4px;
-  margin-left: 30px;
-  margin-top: 20px;
   padding: 10px 0;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   width: 200px;
@@ -30,8 +28,25 @@
   width: 2px;
   background: $primary;
   position: absolute;
+  transition: transform 225ms ease;
+}
+
+.s-active.p1 ~ .s-line {
+  transform: translateY(0);
+}
+
+.s-active.p2 ~ .s-line {
+  transform: translateY(40px);
+}
+
+.s-active.p3 ~ .s-line {
+  transform: translateY(80px);
 }
 
 .router-outlet-wraper {
-  margin: 20px;
+  margin: 0 20px;
+}
+
+.mobile-top-padidng {
+  padding-top: 20px;
 }

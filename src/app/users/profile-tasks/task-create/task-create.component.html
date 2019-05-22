@@ -1,0 +1,55 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div class="title2">Crează o sarcină nouă</div>
+  <div>
+    <form [formGroup]="taskForm" (ngSubmit)="submitTask($event)" action="" fxLayout="column">
+      <mat-form-field floatLabel="always">
+        <mat-label>Titlu</mat-label>
+        <input formControlName="title" matInput placeholder="Introduceți un titlu scrut și descriptiv">
+      </mat-form-field>
+      <mat-form-field floatLabel="always">
+        <mat-label>Descriere</mat-label>
+        <textarea
+          formControlName="description"
+          matInput
+          placeholder="Introduceți decrierea pe lung a sarcinei"></textarea>
+      </mat-form-field>
+      <mat-radio-group
+        formControlName="online"
+        style="margin-bottom: 10px"
+        fxLayout="row"
+        fxLayoutGap="15px"
+        aria-label="Select an option">
+        <mat-radio-button [value]="true">Online</mat-radio-button>
+        <mat-radio-button [value]="false">Offline</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field *ngIf="!taskForm.get('online').value" floatLabel="always">
+        <mat-label>Locația</mat-label>
+        <mat-select placeholder="Alegeți o locație" formControlName="location">
+          <mat-option value="ch">
+            Chișinău
+          </mat-option>
+          <mat-option value="or">
+            Orhei
+          </mat-option>
+          <mat-option value="so">
+            Soroca
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field floatLabel="always">
+        <mat-label>Buget</mat-label>
+        <input formControlName="budget" matInput placeholder="Introduceți bugetul aproximativ">
+      </mat-form-field>
+      <div>
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="taskForm.invalid"
+        >
+          Salvează
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
