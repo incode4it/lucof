@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TasksService } from 'src/app/tasks/tasks.service';
+import { ITask } from '../../tasks/interfaces/task.interface';
 
 @Component({
   selector: 'app-profile-tasks',
@@ -7,23 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileTasksComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private tasksService: TasksService
+  ) { }
 
-  task = {
-    assets: [],
-    category: 'Traduceri',
-    budget: '3000 lei',
-    createdAt: '2019-05-02T10:29:43.633Z',
-    description: 'Se caută o persoană care cunaște japoneza pentru a traduce o documentație tehnică în limba romănă',
-    location: null,
-    online: true,
-    pendingExecutors: [],
-    title: 'Traducere din japoneză în română a 4000 de cuvine',
-    __v: 0,
-    _id: '5ccac697c77a8117955f98cb'
+  public tasks: ITask[] = null;
+
+  async ngOnInit() {
+    this.tasks = await this.tasksService.getMyTasks().toPromise();
   }
 
-  ngOnInit() {
+  public async deleteTask(id: string) {
+    await this.tasksService.deleteTask(id).toPromise();
+    this.tasks = await await this.tasksService.getMyTasks().toPromise();
   }
 
 }

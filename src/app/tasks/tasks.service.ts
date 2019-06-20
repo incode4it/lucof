@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ITask} from '../public/tasks/interfaces/task.interface';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import { ActionStatus } from '../shared/interfaces/action-status.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,12 @@ export class TasksService {
   }
 
   public getMyTasks(): Observable<ITask[]> {
-    return this.httpClient.get('/api/my-tasks')
+    return this.httpClient.get('/api/tasks/my_tasks')
       .pipe(map(r => r as ITask[]));
+  }
+
+  public deleteTask(id: string): Observable<ActionStatus> {
+    return this.httpClient.delete(`/api/tasks/${id}`)
+    .pipe(map(r => r as ActionStatus));
   }
 }

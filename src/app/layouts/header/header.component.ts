@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit {
       dialogConfig.panelClass = 'full-screen-dialog';
     } else {
       dialogConfig.width = '450px';
-      dialogConfig.height = '330px';
+      // dialogConfig.height = '337px';
     }
     this.matDialog.open(LoginComponent, dialogConfig);
   }
@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
       dialogConfig.panelClass = 'full-screen-dialog';
     } else {
       dialogConfig.width = '450px';
-      dialogConfig.height = '407px';
+      // dialogConfig.height = '365px';
     }
     this.matDialog.open(SignUpComponent, dialogConfig);
   }
